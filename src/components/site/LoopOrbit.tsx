@@ -42,12 +42,12 @@ export function LoopOrbit() {
         {/* target band */}
         <circle r={radiusFor(318)} className="fill-primary/10 stroke-primary/40" />
         <motion.circle r={radiusFor(318)} fill="none" className="stroke-primary" strokeWidth={1.5}
-          animate={reduce ? undefined : { scale: [1, 1.08, 1], opacity: [0.8, 0, 0.8] }} transition={{ duration: 2.4, repeat: Infinity }} />
+          animate={reduce ? {} : { scale: [1, 1.08, 1], opacity: [0.8, 0, 0.8] }} transition={{ duration: 2.4, repeat: Infinity }} />
         {/* rotating group */}
-        <motion.g animate={reduce ? undefined : { rotate: 360 }} transition={{ duration: 120, repeat: Infinity, ease: "linear" }}>
+        <motion.g animate={reduce ? {} : { rotate: 360 }} transition={{ duration: 120, repeat: Infinity, ease: "linear" }}>
           {sups.map((s, i) => {
             const a = (i / sups.length) * Math.PI * 2 - Math.PI / 2;
-            const price = s.end === "usd" ? 0 : s.path[r];
+            const price = s.end === "usd" ? 0 : (s.path[r] ?? 0);
             const rad = s.end === "usd" ? 232 : s.end === "out" ? radiusFor(price) + (r === 2 ? 22 : 0) : radiusFor(price);
             const x = Math.cos(a) * rad, y = Math.sin(a) * rad;
             const tone = s.end === "ok" ? "fill-primary" : s.end === "wait" ? "fill-gold" : "fill-muted-foreground";

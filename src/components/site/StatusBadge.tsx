@@ -18,7 +18,7 @@ export function StatusBadge({ label, className }: { label: string; className?: s
     <span
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 eyebrow !text-[10px]",
-        styles[label] ?? styles.SIMULATED,
+        styles[label] ?? styles["SIMULATED"],
         className,
       )}
     >
