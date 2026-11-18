@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { ShieldCheck, MessagesSquare, Scale, Hand, Radar, ScrollText } from "lucide-react";
 import { SiteHeader, SiteFooter } from "@/components/site/SiteHeader";
 import { HeroNegotiation } from "@/components/site/HeroNegotiation";
+import { LoopOrbit, orbitLegend } from "@/components/site/LoopOrbit";
 import { Reveal, SplitWords } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/")({
@@ -71,7 +72,7 @@ function Index() {
             </Reveal>
           </div>
           <div className="flex justify-center lg:justify-end">
-            <HeroNegotiation />
+            <LoopOrbit />
           </div>
         </motion.div>
       </section>
@@ -101,6 +102,24 @@ function Index() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl items-center gap-16 px-5 pb-28 md:px-8 lg:grid-cols-2">
+        <div>
+          <Reveal><p className="eyebrow text-primary">Read the loop</p></Reveal>
+          <Reveal delay={0.1}><h2 className="display-tight mt-4 text-5xl md:text-6xl">Every dot is a supplier. Closer to you means a better price.</h2></Reveal>
+          <ul className="mt-10 space-y-4">
+            {orbitLegend.map((s, i) => (
+              <Reveal key={s.name} delay={i * 0.06}>
+                <li className="flex items-center justify-between border-b pb-4">
+                  <span className="font-medium">{s.name}</span>
+                  <span className="text-sm text-muted-foreground">{s.tag}{s.end === "ok" ? ` · ₨${s.path[2]}/kg` : ""}</span>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+        <Reveal delay={0.2} className="flex justify-center"><HeroNegotiation /></Reveal>
       </section>
 
       <section className="bg-secondary/50 py-28">
