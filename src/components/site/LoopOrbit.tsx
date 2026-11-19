@@ -55,10 +55,11 @@ export function LoopOrbit() {
               <g key={s.name}>
                 <line x1={0} y1={0} x2={Math.cos(a) * 240} y2={Math.sin(a) * 240} className="stroke-border" />
                 {/* travelling quote pulse */}
-                {!reduce && s.end !== "usd" && s.end !== "out" && (
+                {s.end !== "usd" && s.end !== "out" && (
                   <motion.circle r={3} className="fill-gold" key={round}
                     initial={{ cx: Math.cos(a) * 240, cy: Math.sin(a) * 240, opacity: 1 }}
-                    animate={{ cx: 0, cy: 0, opacity: 0 }} transition={{ duration: 1.6, ease: "easeIn" }} />
+                    animate={reduce ? { cx: Math.cos(a) * 240, cy: Math.sin(a) * 240, opacity: 0 } : { cx: 0, cy: 0, opacity: 0 }}
+                    transition={{ duration: 1.6, ease: "easeIn" }} />
                 )}
                 <motion.g animate={{ x, y, opacity: s.end === "out" && r === 2 ? 0.45 : 1 }} transition={{ type: "spring", stiffness: 60, damping: 14 }}>
                   <circle r={s.end === "ok" && r === 2 ? 11 : 8} className={tone} />

@@ -11,7 +11,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "SupplierLoop — AI negotiation for small business buying" },
-      { name: "description", content: "SupplierLoop bargains with 3–5 of your suppliers on WhatsApp at once, within your hard price limits, and leaves the final decision to you." },
+      { name: "description", content: "Send one purchase request to 3–5 suppliers. SupplierLoop negotiates within your limits, compares offers, and leaves the final decision to you." },
       { property: "og:title", content: "SupplierLoop — AI negotiation for small business buying" },
       { property: "og:description", content: "Parallel, bounded supplier negotiations with owner-controlled approval." },
       { property: "og:type", content: "website" },
@@ -47,23 +47,28 @@ function Index() {
         <motion.div style={{ y, opacity: fade }} className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-5 pb-20 md:px-8 lg:grid-cols-[1.15fr_1fr]">
           <div>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="eyebrow mb-6 inline-flex items-center gap-2 rounded-full border bg-card/70 px-3 py-1.5 text-muted-foreground">
-              <span className="size-1.5 rounded-full bg-success animate-pulse-dot" /> Buyer-side negotiation agent · Lahore
+              <span className="size-1.5 rounded-full bg-success animate-pulse-dot" /> Interactive procurement demo · Lahore
             </motion.p>
             <h1 className="display-tight text-[3.4rem] sm:text-7xl lg:text-[6.4rem]">
-              <SplitWords text="Your suppliers," />
+              <SplitWords text="One request." />
               <br />
-              <SplitWords text="bargained" delay={0.25} className="italic text-primary" />{" "}
-              <SplitWords text="for you." delay={0.4} />
+              <SplitWords text="Several suppliers." delay={0.25} className="italic text-primary" />{" "}
+              <SplitWords text="Your call." delay={0.4} />
             </h1>
             <Reveal delay={0.6}>
-              <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                SupplierLoop messages 3–5 of your existing suppliers on WhatsApp, counters every quote within the limits you set, and hands you a clean comparison. Nothing is bought until you say so.
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:mt-8 md:text-lg">
+                SupplierLoop asks 3–5 of your existing suppliers for quotes on WhatsApp, negotiates price and terms within your limits, then compares their replies. You choose the offer. No order or payment is made.
               </p>
             </Reveal>
+            <p className="mt-4 text-sm text-muted-foreground">
+              <span className="numeral text-foreground">01</span> Request <span className="px-1 text-gold">→</span>
+              <span className="numeral text-foreground">02</span> Negotiate <span className="px-1 text-gold">→</span>
+              <span className="numeral text-foreground">03</span> You decide
+            </p>
             <Reveal delay={0.75}>
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3 md:mt-10">
                 <Link to="/dashboard" className="group inline-flex items-center gap-3 rounded-full bg-ink px-7 py-4 text-ink-foreground transition-all hover:gap-5">
-                  Open the owner cockpit <span aria-hidden>→</span>
+                  Explore the demo <span aria-hidden>→</span>
                 </Link>
                 <Link to="/how-it-works" className="inline-flex items-center rounded-full border bg-card px-7 py-4 transition-colors hover:bg-secondary">
                   See how it works
