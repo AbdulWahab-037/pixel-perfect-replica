@@ -7,6 +7,7 @@ const nav = [
   { to: "/", label: "Overview" },
   { to: "/how-it-works", label: "How it works" },
   { to: "/dashboard", label: "Owner cockpit" },
+  { to: "/concepts", label: "Concepts" },
 ] as const;
 
 export function Logo() {
